@@ -1,0 +1,65 @@
+﻿body {
+    background-color: #FFFAFA;
+}
+
+.navbar-inverse {
+    background-color: #DC143C;
+    border-color: #39B54A;
+}
+
+.top_header {
+    background-color: black;
+    padding-left: 50px;
+    color: white;
+}
+
+.form-inline {
+    float: right;
+    padding-top: 8px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-size: x-large;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: white;
+    font-size: large;
+}
+
+    .navbar-inverse .navbar-nav > li > a:hover {
+        color: black;
+    }
+
+.navbar-brand {
+    color: cadetblue;
+}
+
+.spnoibat {
+    background-color: white;
+}
+
+    .spnoibat h3 {
+        padding-left: 50px;
+      
+    }
+.swiper-wrapper {
+    padding: 0 2px;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-bottom: 0px;
+    padding-left: 2px;
+}
+.dt {
+    
+    padding-left: 100px;
+}
+.giohang {
+    color: white;
+}
+

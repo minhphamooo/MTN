@@ -1,0 +1,23 @@
+﻿@model MTN.Models.Nguoidung
+
+@{
+    ViewBag.Title = "DangXuat";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+    var u = Session["use"] as MTN.Models.Nguoidung;
+}
+
+
+
+@{
+    if (u != null)
+    {
+
+        <h2>Xin chào : @u.Email</h2>
+        @Html.ActionLink("Đăng xuất", "DangXuat", "Nguoidung")
+    }
+
+    
+
+}
+
+
