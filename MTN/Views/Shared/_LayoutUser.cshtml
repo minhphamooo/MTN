@@ -31,18 +31,18 @@
                 <div class="col-sm-5"><img class="navbar-brand" /></div>
                 <div class="col-sm-3 col-md-2" style="font-size:large">THEGIOISO</div>
 
-                @*<div class="col-sm-4 col-md-0" style="padding-left:250px">
+                <div class="col-sm-4 col-md-0" style="padding-left:250px">
                     @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
-                </div>*@
-                @*@Html.Action("GioHangPartial", "GioHang",new { @style = "color:while" })*@
+                </div>
+              
                 @{
                     if (u != null)
                     {
-                        <div class="col-sm-4 col-md-0">
+                        <div class="col-sm-4 col-md-4">
                             Xin chào : @u.Email
                             &nbsp;
-                            @*@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })*@
-                            <a style="color:red" href="/User/DangXuat"> ĐĂNG XUẤT</a>
+                            @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })
+                            
                         </div>
                     }
                     else
@@ -54,8 +54,6 @@
                         </div>
                     }
                 }
-
-
             </div>
 
         </div>
@@ -80,23 +78,13 @@
 
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="@Url.Action("Phone","DienThoai")"><i class="glyphicon glyphicon-phone "></i>ĐIỆN THOẠI</a>
-                           
-                            
-                            
-                       
+                        <a href="@Url.Action("Phone","DienThoai")"><i class="glyphicon glyphicon-phone "></i>ĐIỆN THOẠI</a>    
                     </li>
                     <li>
-                        <a href="@Url.Action("Headphones","TayNghe")"><i class="glyphicon glyphicon-headphones "></i>TAY NGHE</a>
-                            
-                            
-                        
+                        <a href="@Url.Action("Headphones","TayNghe")"><i class="glyphicon glyphicon-headphones "></i>TAY NGHE</a>                
                     </li>
                     <li>
-                        <a href="#" title="PHUKIEN">
-                            <span><i class="glyphicon glyphicon-camera "></i></span>
-                            <span>PHỤ KIỆN</span>
-                        </a>
+                        <a href="@Url.Action("PhuKienpartial","Phukien")"><i class="glyphicon glyphicon-camera "></i>PHỤ KIỆN</a>
                     </li>
                     <li>
                         <a href="@Url.Action("lienhead","Lienhe")"><i class="glyphicon glyphicon-headphones "></i>LIÊN HỆ</a>
@@ -113,11 +101,8 @@
 
         </div>
     </div>
-
      <br>
-
     <div class="container body-content">
-
         @RenderBody()
         <hr />
         <div>
@@ -146,8 +131,6 @@
                 <span>GenkVN</span>
                 <br />
                 <span>Dân trí</span>
-
-
             </div>
             <div class="col-md-3 col-sm-6">
                 <h2>Thông tin</h2>
@@ -168,15 +151,11 @@
                 <span>Shopee</span>
                 <br />
                 <span>Group</span>
-
             </div>
         </div>
         <hr />
         <center> <p class="bg-primary">&copy; @DateTime.Now.Year - THẾ GIỚI SỐ </p></center>
     </footer>
-
-
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

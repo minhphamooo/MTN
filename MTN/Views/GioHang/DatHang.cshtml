@@ -1,0 +1,110 @@
+﻿@using MTN.Models;
+@model List<GioHang>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<br />
+<br />
+<h2 class=""> GIỎ HÀNG <i class="fa fa-shopping-cart"></i></h2>
+<br />
+<table class="table-hover table-bordered divGioHang">
+    <tr style="">
+        <th> Mã SP</th>
+
+        <th> Tên SP</th>
+
+        <th> Ảnh bìa</th>
+
+        <th> Đơn giá</th>
+
+        <th> Số lượng</th>
+
+        <th> Thành tiền</th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr class="font-italic">
+            <td> @item.iMasp</td>
+
+            <td> @item.sTensp</td>
+
+            <td><img src="~/HinhAnhMTN/@item.sAnhBia" width="100" height="100" /></td>
+
+            <td>  @String.Format("{0:0,0}", item.dDonGia) VNĐ</td>
+
+            <td> @item.iSoluong</td>
+
+            <td>   @String.Format("{0:0,0}", item.dThanhtien) VNĐ</td>
+
+
+        </tr>
+
+    }
+
+
+    <tr style="font-weight: bold; text-align:right; color:red">
+        <td colspan="4"> Số lượng sách: @ViewBag.Tongsoluong </td>
+        <td colspan="5"> Tổng tiền: @String.Format("{0:0,0}", ViewBag.Tongtien) VNĐ </td>
+    </tr>
+    <tr style="font-weight: bold; color:blue; text-align:right ">
+        <td colspan="6">
+            @Html.ActionLink("TRỞ VỀ GIỎ HÀNG", "GioHang", "GioHang")
+        </td>
+    </tr>
+</table>
+<h2 style="text-align:center">THÔNG TIN ĐẶT HÀNG</h2>
+@{
+    Nguoidung kh = (Nguoidung)Session["use"];
+}
+<table align="center">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <tr style="height:40px">
+            <td> Họ tên khách hàng:</td>
+            <td style="font-weight:bold">  @kh.MaNguoiDung </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Email khách hàng:</td>
+            <td style="font-weight:bold">  @kh.Email </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địa chỉ:</td>
+            <td style="font-weight:bold">  @kh.Diachi </td>
+        </tr>
+        <tr style="height:40px">
+            <td> Địện thoại:</td>
+            <td style="font-weight:bold">  @kh.Dienthoai </td>
+        </tr>
+        <tr style="height:40px">
+            <td></td>
+            <td>
+                @*<input type="Submit" value="ĐỒNG Ý ĐẶT HÀNG" />*@
+                @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "Xacnhandonhang", "GioHang")
+            </td>
+        </tr>
+    }
+</table>
+@*Css giỏ hàng*@
+<style type="text/css">
+    .divGioHang {
+        border: 2px solid #EEEEEE;
+        margin-left: 10%;
+        font-size: large
+    }
+
+        .divGioHang td {
+            padding: 10px;
+            border: 2px solid #EEEEEE;
+            text-align: center
+        }
+
+        .divGioHang th {
+            text-align: center
+        }
+</style>

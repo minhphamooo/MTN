@@ -13,5 +13,17 @@ namespace MTN.Controllers
         {
             return View();
         }
+        public ActionResult hotro()
+        {
+            return View();
+        }
+        public ActionResult quamail()
+        {
+            return View();
+        }
+        public ActionResult googlemap()
+        {
+            return View();
+        }
     }
 }

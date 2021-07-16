@@ -123,11 +123,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\DienThoaiController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienheController.cs" />
     <Compile Include="Controllers\LoginModelController.cs" />
     <Compile Include="Controllers\NguoidungController.cs" />
     <Compile Include="Controllers\PhoneStoreController.cs" />
+    <Compile Include="Controllers\PhukienController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Controllers\TayNgheController.cs" />
     <Compile Include="Global.asax.cs">
@@ -138,6 +140,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dbQLdienthoai.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\GioHang.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +154,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="HinhAnhMTN\1200-44-1200x44-1.png" />
+    <Content Include="HinhAnhMTN\220-48-220x48-3-220x48.jpg" />
     <Content Include="HinhAnhMTN\637322682439532348_ss-note-20-ultra-5g-gold-dd.png" />
     <Content Include="HinhAnhMTN\637338790246029486_vivo-y20-trang-dd.png" />
     <Content Include="HinhAnhMTN\637393169370871358_ip-11-dd.png" />
@@ -163,7 +168,16 @@
     <Content Include="HinhAnhMTN\637570519716076314_poco-x3-pro-den-dd.jpg" />
     <Content Include="HinhAnhMTN\637577199955105403_ss-tab-a7-lite-bac-dd.jpg" />
     <Content Include="HinhAnhMTN\800-200-800x200-136.png" />
+    <Content Include="HinhAnhMTN\800-200-800x200-211.png" />
+    <Content Include="HinhAnhMTN\anker1.jpg" />
+    <Content Include="HinhAnhMTN\anker2.jpg" />
+    <Content Include="HinhAnhMTN\anker3.jpg" />
+    <Content Include="HinhAnhMTN\anker4.jpg" />
+    <Content Include="HinhAnhMTN\Anker54-b_17.png" />
     <Content Include="HinhAnhMTN\app-store.png" />
+    <Content Include="HinhAnhMTN\Apple54-b_5.jpg" />
+    <Content Include="HinhAnhMTN\Asus54-b_23.png" />
+    <Content Include="HinhAnhMTN\AUKEY54-b_21.png" />
     <Content Include="HinhAnhMTN\ban1.png" />
     <Content Include="HinhAnhMTN\ban2.jpg" />
     <Content Include="HinhAnhMTN\ban3.jpg" />
@@ -176,6 +190,7 @@
     <Content Include="HinhAnhMTN\banner5.png" />
     <Content Include="HinhAnhMTN\banner6.png" />
     <Content Include="HinhAnhMTN\banner7.png" />
+    <Content Include="HinhAnhMTN\buds-800-200-800x200.png" />
     <Content Include="HinhAnhMTN\euro-m51-390-97-390x97-1.png" />
     <Content Include="HinhAnhMTN\euro-samsung-830-300-830x300-5.png" />
     <Content Include="HinhAnhMTN\Group3913-340x340.jpg" />
@@ -188,11 +203,17 @@
     <Content Include="HinhAnhMTN\iphone-12-violet-1-600x600.jpg" />
     <Content Include="HinhAnhMTN\iphone-xi-do-600x600.jpg" />
     <Content Include="HinhAnhMTN\iphone.jpg" />
+    <Content Include="HinhAnhMTN\jbl1.jpg" />
+    <Content Include="HinhAnhMTN\jbl2.jpg" />
+    <Content Include="HinhAnhMTN\jbl3.jpg" />
+    <Content Include="HinhAnhMTN\jbl4.jpg" />
     <Content Include="HinhAnhMTN\label-moi-ra-mat-fnal.png" />
     <Content Include="HinhAnhMTN\Label_01-05.png" />
     <Content Include="HinhAnhMTN\laptopdesk-170x170.png" />
     <Content Include="HinhAnhMTN\laptopdesk-340x340.jpg" />
+    <Content Include="HinhAnhMTN\LG54-b_17.png" />
     <Content Include="HinhAnhMTN\logo-iphone-220x48.png" />
+    <Content Include="HinhAnhMTN\logo-xiaomi-220x48-10.png" />
     <Content Include="HinhAnhMTN\logo-xiaomi-220x48-5.png" />
     <Content Include="HinhAnhMTN\logohieu-111.png" />
     <Content Include="HinhAnhMTN\logoshop.png" />
@@ -206,6 +227,7 @@
     <Content Include="HinhAnhMTN\oppo-reno5-trang-600x600-1-600x600.jpg" />
     <Content Include="HinhAnhMTN\oppo.jpg" />
     <Content Include="HinhAnhMTN\OPPO42-b_5.jpg" />
+    <Content Include="HinhAnhMTN\play-store.png" />
     <Content Include="HinhAnhMTN\quangcao1.png" />
     <Content Include="HinhAnhMTN\quangcao2.png" />
     <Content Include="HinhAnhMTN\quangcao3.png" />
@@ -220,11 +242,18 @@
     <Content Include="HinhAnhMTN\samsung-galaxy-a32-4g-thumb-tim-600x600-600x600.jpg" />
     <Content Include="HinhAnhMTN\samsung-galaxy-s21-tim-600x600.jpg" />
     <Content Include="HinhAnhMTN\Samsung42-b_25.jpg" />
+    <Content Include="HinhAnhMTN\Samsung54-b_45.png" />
+    <Content Include="HinhAnhMTN\sony1.jpg" />
+    <Content Include="HinhAnhMTN\sony2.jpg" />
+    <Content Include="HinhAnhMTN\sony3.jpg" />
+    <Content Include="HinhAnhMTN\sony4.jpg" />
     <Content Include="HinhAnhMTN\ss1.jpg" />
     <Content Include="HinhAnhMTN\ss2.jpg" />
     <Content Include="HinhAnhMTN\ss3.jpg" />
     <Content Include="HinhAnhMTN\ss4.jpg" />
     <Content Include="HinhAnhMTN\ss5.jpg" />
+    <Content Include="HinhAnhMTN\sticky-pk-390-97-390x97-1.png" />
+    <Content Include="HinhAnhMTN\sticky-pk-390-97-copy2-390x97.png" />
     <Content Include="HinhAnhMTN\vivo-y53s-xanh-600x600.jpg" />
     <Content Include="HinhAnhMTN\vivo.jpg" />
     <Content Include="HinhAnhMTN\Vivo42-b_50.jpg" />
@@ -280,6 +309,18 @@
     <Content Include="Views\Lienhe\lienhead.cshtml" />
     <Content Include="Views\Nguoidung\DangNhap.cshtml" />
     <Content Include="Views\Nguoidung\DangXuat.cshtml" />
+    <Content Include="Views\Phukien\PhuKienpartial.cshtml" />
+    <Content Include="Views\Lienhe\hotro.cshtml" />
+    <Content Include="Views\Sanpham\Anker.cshtml" />
+    <Content Include="Views\Sanpham\JBL.cshtml" />
+    <Content Include="Views\Sanpham\Sony.cshtml" />
+    <Content Include="Views\Lienhe\quamail.cshtml" />
+    <Content Include="Views\Lienhe\googlemap.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

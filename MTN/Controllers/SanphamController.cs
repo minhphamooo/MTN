@@ -27,6 +27,22 @@ namespace MTN.Controllers
             var mi = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
             return PartialView(mi);
         }
+        public ActionResult Anker()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 4).Take(4).ToList();
+            return PartialView(mi);
+        }
+        public ActionResult JBL()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 5).Take(4).ToList();
+            return PartialView(mi);
+        }
+        public ActionResult Sony()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 6).Take(4).ToList();
+            return PartialView(mi);
+        }
+
         //public ActionResult dttheohang()
         //{
         //    var mi = db.Sanphams.Where(n => n.Mahang == 5).Take(4).ToList();

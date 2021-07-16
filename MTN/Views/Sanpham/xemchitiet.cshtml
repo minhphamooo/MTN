@@ -1,26 +1,47 @@
-﻿
+﻿<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
 @{
     ViewBag.Title = "xemchitiet";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
 <br />
-
+<br />
 <CENTER>
+   
+    <h3> CHI TIẾT SẢN PHẨM </h3>
     <div>
-        <h2>CHI TIẾT SẢN PHẨM</h2>
-        <img src="@Url.Content("~/HinhAnhMTN/"+@Model.Anhbia)" />
-        <br />
-        <h3> @Model.Tensp</h3>
-        <h3 style="color:red">Giá: @Model.Giatien</h3>
-        <br />
-        @Model.Mota
-        <br />
-        @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = Model.Masp, @strURL = Request.Url.ToString() }))
-        {
-            <input type="submit" value="Mua hàng" id="bgnGioHang" />
+        <div style="width:40%; float:left; border-left: dotted 1px; border-color:azure">
+            <img src="~/HinhAnhMTN/@Model.Anhbia" width="100%" />
+        </div>
+        <div style="width:60%; float:left; padding:10px">
+            <h3 style="font-weight:bold; color:red">Tên Sản Phẩm: @Model.Tensp </h3>
+            <p style="font-weight: bold"><Span style="font-weight:bold"> Mô tả: </Span>@Model.Mota </p>
+            <p style="font-weight:bold"> Giá bán: <span style="color:red; font-size:16pt "> @String.Format("{0:0,0}", Model.Giatien) VNĐ </span></p>
+        </div>
+        <div>
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = Model.Masp, @strURL = Request.Url.ToString() }))
+            {
+                <input type="submit" value="Mua hàng" id="bgnGioHang" />
 
-        }
-
+            }
+        </div>
     </div>
 </CENTER>

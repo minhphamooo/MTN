@@ -13,6 +13,7 @@
                 <center>
                     <h3>@item.Tensp</h3>
                     <h3 style="color:red">Giá: @item.Giatien</h3>
+
                     <br />
                     @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp, @strURL = Request.Url.ToString() }))
                     {

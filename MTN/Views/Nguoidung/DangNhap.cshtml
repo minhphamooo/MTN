@@ -8,6 +8,7 @@
     <div class="img-responsive ">
         <img class="img-responsive img-responsive; text-center" src="~/HinhAnhMTN/banner2.png" />
     </div>
+</div>
 
     <h3 style="text-align:center">ĐĂNG NHẬP</h3>
     @using (Html.BeginForm("Dangnhap", "Nguoidung", FormMethod.Post))
@@ -33,15 +34,22 @@
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
+                   
+                        <a href="#" class="content-color bold">Quên mật khẩu ?</a>
+
                     <input type="submit" value="Đăng nhập" class="btn btn-default" />
                 </div>
+                <a class="btn btn-facebook" href="/User/LoginFacebook">
+                    <i class="fa fa-facebook"></i>
+                    Đăng nhập bằng Facebook
+                </a>
             </div>
         </div>
-</div>
-    }
+
     @ViewBag.Fail
 
     <div>
-        @Html.ActionLink("Back to List", "Index","PhoneStore")
+        @Html.ActionLink("Back to List", "Index", "PhoneStore")
     </div>
 
+    }
