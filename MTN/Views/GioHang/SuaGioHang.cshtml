@@ -37,9 +37,9 @@
     @*Chỉnh sửa giỏ hàng gọi về action CapNhatGioHang*@
     @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @iMaSP = item.iMasp }))
     {
-        <td>@Html.TextBox("txtSoLuong", item.iSoluong) </td>
+        <td>@Html.TextBox("txtSoLuong", item.iSoLuong) </td>
 
-        <td>@String.Format("{0:0,0}", item.dThanhtien) VNĐ</td>
+        <td>@String.Format("{0:0,0}", item.ThanhTien) VNĐ</td>
         <td>
             <input type="submit" value="Cập nhật" class="btn-secondary" />
             <br />

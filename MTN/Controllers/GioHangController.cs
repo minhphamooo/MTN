@@ -9,7 +9,7 @@ namespace MTN.Controllers
     public class GioHangController : Controller
     {
         // GET: GioHang
-        dbQLdienthoaiDataContext db = new dbQLdienthoaiDataContext();
+        dbQLdienthoaiDataContext data = new dbQLdienthoaiDataContext();
         public List<GioHang> LayGioHang()
         {
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
@@ -37,7 +37,7 @@ namespace MTN.Controllers
             }
             else
             {
-                sanpham.iSoluong++;
+                sanpham.iSoLuong++;
                 return Redirect(strURL);
             }
         }
@@ -47,7 +47,7 @@ namespace MTN.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                iTongSoLuong = lstGioHang.Sum(n => n.iSoluong);
+                iTongSoLuong = lstGioHang.Sum(n => n.iSoLuong);
             }
             return iTongSoLuong;
         }
@@ -57,7 +57,7 @@ namespace MTN.Controllers
             List<GioHang> lstGioHang = Session["GioHang"] as List<GioHang>;
             if (lstGioHang != null)
             {
-                dTongTien = lstGioHang.Sum(n => n.dThanhtien);
+                dTongTien = lstGioHang.Sum(n => n.ThanhTien);
             }
             return dTongTien;
         }
@@ -88,7 +88,7 @@ namespace MTN.Controllers
             //Nếu mà tồn tại thì chúng ta cho sửa số lượng
             if (sanpham != null)
             {
-                sanpham.iSoluong = int.Parse(f["txtSoLuong"].ToString());
+                sanpham.iSoLuong = int.Parse(f["txtSoLuong"].ToString());
 
             }
             return RedirectToAction("GioHang");
@@ -156,24 +156,29 @@ namespace MTN.Controllers
         public ActionResult DatHang(FormCollection collection)
         {
             //Thêm đơn hàng
-            Donhang ddh = new Donhang();
+            Donhang donhang = new Donhang();
             Nguoidung kh = (Nguoidung)Session["use"];
             List<GioHang> gh = LayGioHang();
-            ddh.MaNguoidung = kh.MaNguoiDung;
-            ddh.Ngaydat = DateTime.Now;
-            db.Donhangs.InsertOnSubmit(ddh);
-           
+            donhang.MaNguoidung = kh.MaNguoiDung;
+            donhang.Ngaydat = DateTime.Now;
+            var ngaygiao = String.Format("{0:MM/dd/yyyy}", collection["Ngaygiao"]);
+            donhang.Ngaygiao = DateTime.Parse(ngaygiao);
+            donhang.Tinhtrang = false;
+            donhang.Datthanhtoan = false;
+
+            data.Donhangs.InsertOnSubmit(donhang);
+            data.SubmitChanges();
             //Thêm chi tiết đơn hàng
             foreach (var item in gh)
             {
-                Chitietdonhang ctDH = new Chitietdonhang();
-                ctDH.Madon = ddh.Madon;
-                ctDH.Masp = item.iMasp;
-                ctDH.Soluong = item.iSoluong;
-                ctDH.Dongia = (decimal)item.dDonGia;
-                db.Chitietdonhangs.InsertOnSubmit(ctDH);
+                Chitietdonhang cthd = new Chitietdonhang();
+                cthd.Madon = donhang.Madon;
+                cthd.Masp = item.iMasp;
+                cthd.Soluong = item.iSoLuong;
+                cthd.Dongia = (decimal)item.dDonGia;
+                data.Chitietdonhangs.InsertOnSubmit(cthd);
             }
-            db.SubmitChanges();
+            data.SubmitChanges();
             Session["Giohang"] = null;
             return RedirectToAction("Xacnhandonhang", "Giohang");
         }

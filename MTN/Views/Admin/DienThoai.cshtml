@@ -1,0 +1,121 @@
+﻿@using MTN.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<MTN.Models.Sanpham>
+@helper Truncate(string input, int length)
+{
+    if (input.Length < length)
+    {
+        @input
+    }
+    else
+    {
+        @input.Substring(0, length)<text>...</text>
+    }
+}
+@{
+    ViewBag.Title = "DienThoai";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<br />
+<h2>Quản Lý Thông Tin Điện Thoại</h2>
+
+<p>
+    @Html.ActionLink("Thêm Mới", "Themmoisanpham", "Admin")
+</p>
+<table class="table">
+    <tr>
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Tensp)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Giatien)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Soluong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Thesim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Bonhotrong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Sanphammoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Ram)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Anhbia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mahang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.First().Mahdh)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tensp)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Giatien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Soluong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Thesim)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bonhotrong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sanphammoi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ram)
+            </td>
+            <td>
+                <img src="@Url.Content("~/HinhAnhMTN/"+  item.Anhbia)" width="120" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mahang)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mahdh)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Suasp", new { id = item.Masp }) |
+                @Html.ActionLink("Chi tiết Sản Phẩm", "Chitietsp", new { id = item.Masp }) |
+                @Html.ActionLink("Xóa", "Xoasp", new { id = item.Masp })
+            </td>
+        </tr>
+    }
+
+</table>
+@* Tao liên kết các trang  *@
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount;
+<div class="MenuTrang">
+
+    @Html.PagedListPager(Model, page => Url.Action("DienThoai", new { page = page }))
+</div>
+<style>
+    .MenuTrang li {
+        display: inline;
+    }
+</style>

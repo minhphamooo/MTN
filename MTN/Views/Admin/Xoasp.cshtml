@@ -1,0 +1,114 @@
+﻿@model MTN.Models.Sanpham
+
+@{
+    ViewBag.Title = "Xoasach";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<br />
+<br />
+<h3>XÁC NHẬN THÔNG TIN XÓA SẢN PHẨM</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Tên Sản Phẩm :
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Tensp)
+        </dd>
+
+        <dt>
+            Giá Bán :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Giatien) VNĐ
+        </dd>
+
+        <dt>
+            Số Lượng :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soluong)
+        </dd>
+
+        <dt>
+            Mô Tả :
+        </dt>
+
+        <dd style="width:600px ; text-align:justify">
+            @Html.DisplayFor(model => model.Mota)
+        </dd>
+
+        <dt>
+            Thẻ Sim :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Thesim)
+        </dd>
+
+        <dt>
+            Bộ Nhớ Trong :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bonhotrong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sanphammoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sanphammoi)
+        </dd>
+
+        <dt>
+            Ram :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ram)
+        </dd>
+
+        <dt>
+            Ảnh Bìa :
+        </dt>
+
+        <dd>
+            <img src="@Url.Content("~/HinhAnhMTN/"+  Model.Anhbia)" width="120" />
+        </dd>
+
+        <dt>
+            Mã Hãng :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mahang)
+        </dd>
+
+        <dt>
+            Mã Hệ Điều Hành :
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mahdh)
+        </dd>
+
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("TRỞ VỀ", "Index")
+        </div>
+    }
+</div>

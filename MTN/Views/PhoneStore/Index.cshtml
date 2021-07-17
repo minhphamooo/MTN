@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
-<br />
+
 <div class="row">
     <br />
     <div class="img-responsive">
@@ -62,10 +62,10 @@
     <div class="col-md-2">
         <img src="~/HinhAnhMTN/masstel.jpg" class="img-responsive" alt="" />
     </div>
-    
+
 </div>
-    
-   
+
+
 <div class="danhmuc">
     <h3>ĐIỆN THOẠI MỚI</h3>
 </div>
@@ -82,7 +82,20 @@
 
     @Html.Action("dtxiaomipartial", "Sanpham")
 </div>
+<div class="dt">
 
+    @Html.Action("Anker", "Sanpham")
+</div>
+
+<div class="dt">
+
+    @Html.Action("JBL", "Sanpham")
+</div>
+
+<div class="dt">
+
+    @Html.Action("Sony", "Sanpham")
+</div>
 <div class="row">
     <h2> Tin tức sản phẩm</h2>
     <div class="col-md-8">

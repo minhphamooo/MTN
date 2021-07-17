@@ -30,6 +30,9 @@ namespace MTN.Models
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertAdmin(Admin instance);
+    partial void UpdateAdmin(Admin instance);
+    partial void DeleteAdmin(Admin instance);
     partial void InsertChitietdonhang(Chitietdonhang instance);
     partial void UpdateChitietdonhang(Chitietdonhang instance);
     partial void DeleteChitietdonhang(Chitietdonhang instance);
@@ -81,6 +84,14 @@ namespace MTN.Models
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<Admin> Admins
+		{
+			get
+			{
+				return this.GetTable<Admin>();
+			}
 		}
 		
 		public System.Data.Linq.Table<Chitietdonhang> Chitietdonhangs
@@ -136,6 +147,116 @@ namespace MTN.Models
 			get
 			{
 				return this.GetTable<Sanpham>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Admin")]
+	public partial class Admin : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _UserName;
+		
+		private string _PassAdmin;
+		
+		private string _HoTen;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPassAdminChanging(string value);
+    partial void OnPassAdminChanged();
+    partial void OnHoTenChanging(string value);
+    partial void OnHoTenChanged();
+    #endregion
+		
+		public Admin()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PassAdmin", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string PassAdmin
+		{
+			get
+			{
+				return this._PassAdmin;
+			}
+			set
+			{
+				if ((this._PassAdmin != value))
+				{
+					this.OnPassAdminChanging(value);
+					this.SendPropertyChanging();
+					this._PassAdmin = value;
+					this.SendPropertyChanged("PassAdmin");
+					this.OnPassAdminChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HoTen", DbType="NVarChar(50)")]
+		public string HoTen
+		{
+			get
+			{
+				return this._HoTen;
+			}
+			set
+			{
+				if ((this._HoTen != value))
+				{
+					this.OnHoTenChanging(value);
+					this.SendPropertyChanging();
+					this._HoTen = value;
+					this.SendPropertyChanged("HoTen");
+					this.OnHoTenChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -364,9 +485,13 @@ namespace MTN.Models
 		
 		private int _Madon;
 		
+		private System.Nullable<bool> _Datthanhtoan;
+		
+		private System.Nullable<bool> _Tinhtrang;
+		
 		private System.Nullable<System.DateTime> _Ngaydat;
 		
-		private System.Nullable<int> _Tinhtrang;
+		private System.Nullable<System.DateTime> _Ngaygiao;
 		
 		private System.Nullable<int> _MaNguoidung;
 		
@@ -380,10 +505,14 @@ namespace MTN.Models
     partial void OnCreated();
     partial void OnMadonChanging(int value);
     partial void OnMadonChanged();
+    partial void OnDatthanhtoanChanging(System.Nullable<bool> value);
+    partial void OnDatthanhtoanChanged();
+    partial void OnTinhtrangChanging(System.Nullable<bool> value);
+    partial void OnTinhtrangChanged();
     partial void OnNgaydatChanging(System.Nullable<System.DateTime> value);
     partial void OnNgaydatChanged();
-    partial void OnTinhtrangChanging(System.Nullable<int> value);
-    partial void OnTinhtrangChanged();
+    partial void OnNgaygiaoChanging(System.Nullable<System.DateTime> value);
+    partial void OnNgaygiaoChanged();
     partial void OnMaNguoidungChanging(System.Nullable<int> value);
     partial void OnMaNguoidungChanged();
     #endregion
@@ -395,7 +524,7 @@ namespace MTN.Models
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Madon", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Madon", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Madon
 		{
 			get
@@ -411,6 +540,46 @@ namespace MTN.Models
 					this._Madon = value;
 					this.SendPropertyChanged("Madon");
 					this.OnMadonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Datthanhtoan", DbType="Bit")]
+		public System.Nullable<bool> Datthanhtoan
+		{
+			get
+			{
+				return this._Datthanhtoan;
+			}
+			set
+			{
+				if ((this._Datthanhtoan != value))
+				{
+					this.OnDatthanhtoanChanging(value);
+					this.SendPropertyChanging();
+					this._Datthanhtoan = value;
+					this.SendPropertyChanged("Datthanhtoan");
+					this.OnDatthanhtoanChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tinhtrang", DbType="Bit")]
+		public System.Nullable<bool> Tinhtrang
+		{
+			get
+			{
+				return this._Tinhtrang;
+			}
+			set
+			{
+				if ((this._Tinhtrang != value))
+				{
+					this.OnTinhtrangChanging(value);
+					this.SendPropertyChanging();
+					this._Tinhtrang = value;
+					this.SendPropertyChanged("Tinhtrang");
+					this.OnTinhtrangChanged();
 				}
 			}
 		}
@@ -435,22 +604,22 @@ namespace MTN.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tinhtrang", DbType="Int")]
-		public System.Nullable<int> Tinhtrang
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ngaygiao", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Ngaygiao
 		{
 			get
 			{
-				return this._Tinhtrang;
+				return this._Ngaygiao;
 			}
 			set
 			{
-				if ((this._Tinhtrang != value))
+				if ((this._Ngaygiao != value))
 				{
-					this.OnTinhtrangChanging(value);
+					this.OnNgaygiaoChanging(value);
 					this.SendPropertyChanging();
-					this._Tinhtrang = value;
-					this.SendPropertyChanged("Tinhtrang");
-					this.OnTinhtrangChanged();
+					this._Ngaygiao = value;
+					this.SendPropertyChanged("Ngaygiao");
+					this.OnNgaygiaoChanged();
 				}
 			}
 		}

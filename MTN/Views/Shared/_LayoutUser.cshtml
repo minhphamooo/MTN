@@ -24,24 +24,21 @@
     }
 
     <div class="navbar navbar-inverse navbar-fixed-top">
-
         <div class="top_header col-md-12">
-
             <div class="row">
-                <div class="col-sm-5"><img class="navbar-brand" /></div>
-                <div class="col-sm-3 col-md-2" style="font-size:large">THEGIOISO</div>
-
-                <div class="col-sm-4 col-md-0" style="padding-left:250px">
+                
+                <div class="col-sm-6 " style="font-size:large">THEGIOISO</div>
+                <div class="col-sm-3 " style="padding-left:250px">
                     @Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })
                 </div>
               
                 @{
                     if (u != null)
                     {
-                        <div class="col-sm-4 col-md-4">
+                        <div class="text-right: 0;">
                             Xin chào : @u.Email
                             &nbsp;
-                            @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })
+                            @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "Nguoidung", new { style = "color:red" })
                             
                         </div>
                     }

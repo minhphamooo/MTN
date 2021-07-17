@@ -45,11 +45,25 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -121,6 +135,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\DienThoaiController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -144,11 +159,38 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\assets\bootstrap\js\npm.js" />
+    <Content Include="Content\assets\css\form-elements.css" />
+    <Content Include="Content\assets\css\style.css" />
+    <Content Include="Content\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\assets\font-awesome\font-awesome.min.css" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\assets\ico\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Content\assets\ico\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Content\assets\ico\favicon.png" />
+    <Content Include="Content\assets\img\backgrounds\1%402x.jpg" />
+    <Content Include="Content\assets\img\backgrounds\1.jpg" />
+    <Content Include="Content\assets\js\jquery-1.11.1.js" />
+    <Content Include="Content\assets\js\jquery-1.11.1.min.js" />
+    <Content Include="Content\assets\js\jquery.backstretch.js" />
+    <Content Include="Content\assets\js\jquery.backstretch.min.js" />
+    <Content Include="Content\assets\js\placeholder.js" />
+    <Content Include="Content\assets\js\scripts.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Minhdeptrai.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -268,6 +310,43 @@
       <LastGenOutput>dbQLdienthoai.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Content\assets\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Content\assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\assets\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="Content\assets\font-awesome\less\animated.less" />
+    <Content Include="Content\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="Content\assets\font-awesome\less\core.less" />
+    <Content Include="Content\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="Content\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="Content\assets\font-awesome\less\icons.less" />
+    <Content Include="Content\assets\font-awesome\less\larger.less" />
+    <Content Include="Content\assets\font-awesome\less\list.less" />
+    <Content Include="Content\assets\font-awesome\less\mixins.less" />
+    <Content Include="Content\assets\font-awesome\less\path.less" />
+    <Content Include="Content\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="Content\assets\font-awesome\less\stacked.less" />
+    <Content Include="Content\assets\font-awesome\less\variables.less" />
+    <Content Include="Content\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_core.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_list.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_path.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="Content\assets\font-awesome\scss\_variables.scss" />
     <None Include="Models\dbQLdienthoai.dbml.layout">
       <DependentUpon>dbQLdienthoai.dbml</DependentUpon>
     </None>
@@ -282,6 +361,85 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce\changelog.txt" />
+    <Content Include="tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\example\dialog.html" />
+    <Content Include="tinymce\js\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="tinymce\js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="tinymce\LICENSE.TXT" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -321,6 +479,21 @@
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\Xacnhandonhang.cshtml" />
     <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\Admin\LoginAdmin.cshtml" />
+    <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Admin\Themmoisanpham.cshtml" />
+    <Content Include="Views\Admin\DienThoai.cshtml" />
+    <Content Include="Views\Admin\Chitietsp.cshtml" />
+    <Content Include="Views\Admin\Xoasp.cshtml" />
+    <Content Include="Views\Admin\Suasp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

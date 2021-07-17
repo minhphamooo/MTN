@@ -12,10 +12,10 @@ namespace MTN.Models
         public string sTensp { get; set; }
         public string sAnhBia { get; set; }
         public double dDonGia { get; set; }
-        public int iSoluong { get; set; }
-        public double dThanhtien
+        public int iSoLuong { get; set; }
+        public double ThanhTien
         {
-            get { return iSoluong * dDonGia; }
+            get { return iSoLuong * dDonGia; }
         }
         //Hàm tạo cho giỏ hàng
         public GioHang(int Masp)
@@ -25,7 +25,7 @@ namespace MTN.Models
             sTensp = sp.Tensp;
             sAnhBia = sp.Anhbia;
             dDonGia = double.Parse(sp.Giatien.ToString());
-            iSoluong = 1;
+            iSoLuong = 1;
         }
 
     }
