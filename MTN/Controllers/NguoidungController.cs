@@ -60,7 +60,7 @@ namespace MTN.Controllers
                 if (userMail == "Admin@gmail.com")
                 {
                     Session["use"] = islogin;
-                    return RedirectToAction("Index", "Admin/Home");
+                    return RedirectToAction("Index", "Admin");
                 }
                 else
                 {

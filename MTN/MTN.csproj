@@ -135,10 +135,12 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\admin\AdminController.cs" />
+    <Compile Include="Controllers\admin\DonhangController.cs" />
     <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\DienThoaiController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\admin\HangsxController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LienheController.cs" />
     <Compile Include="Controllers\LoginModelController.cs" />
@@ -494,6 +496,16 @@
     <Content Include="Views\Admin\Chitietsp.cshtml" />
     <Content Include="Views\Admin\Xoasp.cshtml" />
     <Content Include="Views\Admin\Suasp.cshtml" />
+    <Content Include="Views\Hangsx\Index.cshtml" />
+    <Content Include="Views\Hangsx\Details.cshtml" />
+    <Content Include="Views\Hangsx\Create.cshtml" />
+    <Content Include="Views\Hangsx\Edit.cshtml" />
+    <Content Include="Views\Hangsx\Delete.cshtml" />
+    <Content Include="Views\Donhang\Index.cshtml" />
+    <Content Include="Views\Donhang\Details.cshtml" />
+    <Content Include="Views\Donhang\Create.cshtml" />
+    <Content Include="Views\Donhang\Edit.cshtml" />
+    <Content Include="Views\Donhang\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

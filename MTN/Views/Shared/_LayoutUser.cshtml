@@ -35,12 +35,12 @@
                 @{
                     if (u != null)
                     {
-                        <div class="text-right: 0;">
-                            Xin chào : @u.Email
-                            &nbsp;
-                            @Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "Nguoidung", new { style = "color:red" })
-                            
-                        </div>
+                                <div class="text-right: 0;">
+                                    Xin chào : @u.Email
+                                    &nbsp;
+                                    <a style="color:red" href="/Nguoidung/DangXuat"> ĐĂNG XUẤT</a>
+
+                                </div>
                     }
                     else
                     {

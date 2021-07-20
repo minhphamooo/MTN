@@ -1,0 +1,60 @@
+﻿@model MTN.Models.Donhang
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<br />
+<br />
+<h2>CHI TIẾT ĐƠN HÀNG</h2>
+<div>
+    
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Datthanhtoan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Datthanhtoan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tinhtrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tinhtrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaydat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaydat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ngaygiao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ngaygiao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaNguoidung)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaNguoidung)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Madon }) |
+    @Html.ActionLink("Trở Về", "Index")
+</p>
