@@ -20,9 +20,13 @@ namespace MTN.Controllers
         }
         public ActionResult Details(int id)
         {
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else {
+                var Details_sx = db.Hangsanxuats.Where(m => m.Mahang == id).First();
+                return View(Details_sx);
+            }
             
-            var Details_sx = db.Hangsanxuats.Where(m => m.Mahang == id).First();
-            return View(Details_sx);
         }
         public ActionResult Create()
         {

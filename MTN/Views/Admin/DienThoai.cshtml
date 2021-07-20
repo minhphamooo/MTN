@@ -12,53 +12,52 @@
         @input.Substring(0, length)<text>...</text>
     }
 }
+
 @{
     ViewBag.Title = "DienThoai";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 <br />
 <br />
-<h2>Quản Lý Thông Tin Điện Thoại</h2>
+<h2>THÔNG TIN SẢN PHẨM </h2>
 
 <p>
-    @Html.ActionLink("Thêm Mới", "Themmoisanpham", "Admin")
+    @Html.ActionLink("Thêm mới", "Create")
 </p>
 <table class="table">
     <tr>
-
-    <tr>
         <th>
-            @Html.DisplayNameFor(model => model.First().Tensp)
+            Tên Sản Phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Giatien)
+            Giá Tiền
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Soluong)
+            Số Lượng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Mota)
+            Mô Tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Thesim)
+            Sim
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Bonhotrong)
+            Bộ Nhớ Trong
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Sanphammoi)
+            Sản Phẩm Mới
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Ram)
+           Ram 
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Anhbia)
+            Ảnh Bìa
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Mahang)
+            Mã Hãng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.First().Mahdh)
+            Mã Hệ Điều Hành
         </th>
         <th></th>
     </tr>
@@ -100,9 +99,9 @@
                 @Html.DisplayFor(modelItem => item.Mahdh)
             </td>
             <td>
-                @Html.ActionLink("Sửa", "Suasp", new { id = item.Masp }) |
-                @Html.ActionLink("Chi tiết Sản Phẩm", "Chitietsp", new { id = item.Masp }) |
-                @Html.ActionLink("Xóa", "Xoasp", new { id = item.Masp })
+                @Html.ActionLink("Sửa", "Edit", new { id = item.Masp }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.Masp }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.Masp })
             </td>
         </tr>
     }

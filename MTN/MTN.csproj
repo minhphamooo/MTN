@@ -137,6 +137,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\admin\AdminController.cs" />
     <Compile Include="Controllers\admin\DonhangController.cs" />
+    <Compile Include="Controllers\admin\QlnguoidungController.cs" />
     <Compile Include="Controllers\DanhmucController.cs" />
     <Compile Include="Controllers\DienThoaiController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
@@ -213,6 +214,7 @@
     <Content Include="HinhAnhMTN\637577199955105403_ss-tab-a7-lite-bac-dd.jpg" />
     <Content Include="HinhAnhMTN\800-200-800x200-136.png" />
     <Content Include="HinhAnhMTN\800-200-800x200-211.png" />
+    <Content Include="HinhAnhMTN\admin.jpg" />
     <Content Include="HinhAnhMTN\anker1.jpg" />
     <Content Include="HinhAnhMTN\anker2.jpg" />
     <Content Include="HinhAnhMTN\anker3.jpg" />
@@ -491,11 +493,6 @@
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
     <Content Include="tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
-    <Content Include="Views\Admin\Themmoisanpham.cshtml" />
-    <Content Include="Views\Admin\DienThoai.cshtml" />
-    <Content Include="Views\Admin\Chitietsp.cshtml" />
-    <Content Include="Views\Admin\Xoasp.cshtml" />
-    <Content Include="Views\Admin\Suasp.cshtml" />
     <Content Include="Views\Hangsx\Index.cshtml" />
     <Content Include="Views\Hangsx\Details.cshtml" />
     <Content Include="Views\Hangsx\Create.cshtml" />
@@ -506,6 +503,16 @@
     <Content Include="Views\Donhang\Create.cshtml" />
     <Content Include="Views\Donhang\Edit.cshtml" />
     <Content Include="Views\Donhang\Delete.cshtml" />
+    <Content Include="Views\Qlnguoidung\Index.cshtml" />
+    <Content Include="Views\Qlnguoidung\Details.cshtml" />
+    <Content Include="Views\Qlnguoidung\Create.cshtml" />
+    <Content Include="Views\Qlnguoidung\Edit.cshtml" />
+    <Content Include="Views\Qlnguoidung\Delete.cshtml" />
+    <Content Include="Views\Admin\DienThoai.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

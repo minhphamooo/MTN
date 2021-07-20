@@ -59,89 +59,88 @@ namespace MTN.Controllers
             return View(db.Sanphams.ToList().OrderBy(n => n.Masp).ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
-        public ActionResult Themmoisanpham()
+        public ActionResult Create()
         {
-            ViewBag.MaHang = new SelectList(db.Hangsanxuats.ToList().OrderBy(n => n.Tenhang), "Mahang", "Tenhang");
-            ViewBag.Mahdh = new SelectList(db.Hedieuhanhs.ToList().OrderBy(n => n.Mahdh), "Mahdh", "Tenhdh");
-            return View();
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else
+                return View();
         }
         [HttpPost]
-        [ValidateInput(false)]
-        public ActionResult Themmoisanpham(Sanpham sp, HttpPostedFileBase fileupload)
+        public ActionResult Create(FormCollection collection, Sanpham sp)
         {
-            ViewBag.MaHang = new SelectList(db.Hangsanxuats.ToList().OrderBy(n => n.Tenhang), "Mahang", "Tenhang");
-            ViewBag.Mahdh = new SelectList(db.Hedieuhanhs.ToList().OrderBy(n => n.Mahdh), "Mahdh", "Tenhdh");
-            if(fileupload==null)
+
+            var CB_Sanpham = collection["Tensp"];
+            if (string.IsNullOrEmpty(CB_Sanpham))
             {
-                ViewBag.Thongbao = "Vui lòng chọn ảnh bìa";
-                return View();
+                ViewData["Loi"] = "Tên sản phẩm không có";
             }
             else
             {
-                if(ModelState.IsValid)
-                {
-                    var fileName = Path.GetFileName(fileupload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/HinhAnhMTN"), fileName);
-                    if (System.IO.File.Exists(path))
-                    {
-                        ViewBag.Thongbao = "Hình ảnh đã tồn tại";
-                    }
-                    else
-                    {
-                        fileupload.SaveAs(path);
-                    }
-                    sp.Anhbia = fileName;
-                    db.Sanphams.InsertOnSubmit(sp);
-                    db.SubmitChanges();
-                }    
+                sp.Tensp = CB_Sanpham;
+                db.Sanphams.InsertOnSubmit(sp);
+                db.SubmitChanges();
+                return RedirectToAction("Index");
             }
-            
-            
-            return RedirectToAction("Sanpham");
-        }
-        public ActionResult Chitietsp(int id)
+            return this.Create();
+
+        
+    }
+        public ActionResult Details(int id)
         {
-            //Lay ra doi tuong sach theo ma
-            Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == id);
-            ViewBag.Masp= sp.Masp;
-            if (sp == null)
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else
             {
-                Response.StatusCode = 404;
-                return null;
+                var Details_sp = db.Sanphams.Where(m => m.Masp == id).First();
+                return View(Details_sp);
             }
-            return View(sp);
+
         }
-        [HttpGet]
-        public ActionResult Xoasp(int id)
+        public ActionResult Edit(int id)
         {
-            
-            Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == id);
-            ViewBag.Masp = sp.Masp;
-            if (sp == null)
+            var Ed_ = db.Sanphams.First(m => m.Masp == id);
+            return View(Ed_);
+        }
+        [HttpPost]
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+
+            var edit = db.Sanphams.First(m => m.Masp == id);
+            var ED_Sanpham = collection["Tensp"];
+            edit.Masp = id;
+            if (string.IsNullOrEmpty(ED_Sanpham))
             {
-                Response.StatusCode = 404;
-                return null;
+                ViewData["Loi"] = "Tên hãng không có";
             }
-            return View(sp);
+            else
+            {
+                edit.Tensp = ED_Sanpham;
+                UpdateModel(edit);
+                db.SubmitChanges();
+                return RedirectToAction("DienThoai");
+            }
+            return this.Edit(id);
+        }
+        public ActionResult Delete(int id)
+        {
+
+            var DL = db.Sanphams.First(m => m.Masp == id);
+            return View(DL);
+        }
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+
+            var delete = db.Sanphams.Where(m => m.Masp == id).First();
+            db.Sanphams.DeleteOnSubmit(delete);
+            db.SubmitChanges();
+            return RedirectToAction("Index");
         }
 
-        [HttpPost, ActionName("Xoasach")]
-        public ActionResult Xacnhanxoa(int id)
-        {
-           
-            Sanpham sp = db.Sanphams.SingleOrDefault(n => n.Masp == id);
-            ViewBag.Masach = sp.Masp;
-            if (sp == null)
-            {
-                Response.StatusCode = 404;
-                return null;
-            }
-            db.Sanphams.DeleteOnSubmit(sp);
-            db.SubmitChanges();
-            return RedirectToAction("Sach");
-        }
-        //Chinh sửa sản phẩm
-        [HttpGet]
+    
+    //Chinh sửa sản phẩm
+    [HttpGet]
         public ActionResult Suasp(int id)
         {
             //Lay ra doi tuong sach theo ma

@@ -1,9 +1,10 @@
 ﻿@model MTN.Models.Sanpham
 
 @{
-    ViewBag.Title = "Chitietsp";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+
 <br />
 <br />
 <h2>THÔNG TIN CHI TIẾT SẢN PHẨM </h2>
@@ -101,6 +102,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("SỬA", "Suasp", new { id = Model.Masp }) |
-    @Html.ActionLink("TRỞ VỀ", "Index")
+
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.Masp }) |
+    @Html.ActionLink("Trở Về", "Dienthoai", "Admin")
 </p>

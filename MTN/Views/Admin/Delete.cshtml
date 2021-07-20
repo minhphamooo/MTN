@@ -1,34 +1,36 @@
 ﻿@model MTN.Models.Sanpham
 
 @{
-    ViewBag.Title = "Xoasach";
+    ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
+<br />
+<br />
+<h2>XÓA SẢN PHẨM</h2>
 
-<br />
-<br />
-<h3>XÁC NHẬN THÔNG TIN XÓA SẢN PHẨM</h3>
+<h3>Bạn thật sự muốn xóa sản phẩm này?</h3>
 <div>
-
+    
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            Tên Sản Phẩm :
+            @Html.DisplayNameFor(model => model.Tensp)
         </dt>
+
         <dd>
             @Html.DisplayFor(model => model.Tensp)
         </dd>
 
         <dt>
-            Giá Bán :
+            @Html.DisplayNameFor(model => model.Giatien)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Giatien) VNĐ
+            @Html.DisplayFor(model => model.Giatien)
         </dd>
 
         <dt>
-            Số Lượng :
+            @Html.DisplayNameFor(model => model.Soluong)
         </dt>
 
         <dd>
@@ -36,15 +38,15 @@
         </dd>
 
         <dt>
-            Mô Tả :
+            @Html.DisplayNameFor(model => model.Mota)
         </dt>
 
-        <dd style="width:600px ; text-align:justify">
+        <dd>
             @Html.DisplayFor(model => model.Mota)
         </dd>
 
         <dt>
-            Thẻ Sim :
+            @Html.DisplayNameFor(model => model.Thesim)
         </dt>
 
         <dd>
@@ -52,7 +54,7 @@
         </dd>
 
         <dt>
-            Bộ Nhớ Trong :
+            @Html.DisplayNameFor(model => model.Bonhotrong)
         </dt>
 
         <dd>
@@ -68,7 +70,7 @@
         </dd>
 
         <dt>
-            Ram :
+            @Html.DisplayNameFor(model => model.Ram)
         </dt>
 
         <dd>
@@ -76,7 +78,7 @@
         </dd>
 
         <dt>
-            Ảnh Bìa :
+            @Html.DisplayNameFor(model => model.Anhbia)
         </dt>
 
         <dd>
@@ -84,7 +86,7 @@
         </dd>
 
         <dt>
-            Mã Hãng :
+            @Html.DisplayNameFor(model => model.Mahang)
         </dt>
 
         <dd>
@@ -92,7 +94,7 @@
         </dd>
 
         <dt>
-            Mã Hệ Điều Hành :
+            @Html.DisplayNameFor(model => model.Mahdh)
         </dt>
 
         <dd>
@@ -101,14 +103,12 @@
 
     </dl>
 
-
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Xóa" class="btn btn-default" /> |
-            @Html.ActionLink("TRỞ VỀ", "Index")
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Trở Về", "Dienthoai","Admin")
         </div>
     }
 </div>
