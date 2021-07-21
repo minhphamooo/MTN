@@ -1,8 +1,9 @@
 ﻿
 @{
-    ViewBag.Title = "Phone";
+    ViewBag.Title = "Laptop";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+
 <div class="row">
     <br />
     <div class="img-responsive">
@@ -19,16 +20,16 @@
             </ol>
             <div class="carousel-inner">
                 <div class="item active">
-                    <img class="slide-image" src="~/HinhAnhMTN/banner4.png" alt="">
+                    <img class="slide-image" src="~/HinhAnhMTN/bannerlap1.jpg" alt="">
                 </div>
                 <div class="item">
-                    <img class="slide-image" src="~/HinhAnhMTN/banner5.png" alt="">
+                    <img class="slide-image" src="~/HinhAnhMTN/bannerlap2.jpg" alt="">
                 </div>
                 <div class="item">
-                    <img class="slide-image" src="~/HinhAnhMTN/banner3.png" alt="">
+                    <img class="slide-image" src="~/HinhAnhMTN/bannerlap3.jpg" alt="">
                 </div>
                 <div class="item">
-                    <img class="slide-image" src="~/HinhAnhMTN/banner2.png" alt="">
+                    <img class="slide-image" src="~/HinhAnhMTN/bannerlap4.jpg" alt="">
                 </div>
 
 
@@ -41,24 +42,24 @@
             </a>
 
         </div>
-        
+
     </div>
 </div>
-    <br />
 
-    <div class="dt" style=" padding-left: 20px;">
+<h3 style="Text-align: Center; color: white; font-style: inherit; background-color: #d41d50;"> SẢN PHẨM NỔI BẬT</h3>
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtiphonePartial", "Sanpham")
-    </div>
-    <div class="dt" style=" padding-left: 20px;">
+    @Html.Action("HP", "Sanpham")
+</div>
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtsamsungpartial", "Sanpham")
-    </div>
+    @Html.Action("Acer", "Sanpham")
+</div>
 
-    <div class="dt" style=" padding-left: 20px;">
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtxiaomipartial", "Sanpham")
-    </div>
+    @Html.Action("Lenovo", "Sanpham")
+</div>
 
 
 

@@ -42,7 +42,21 @@ namespace MTN.Controllers
             var mi = db.Sanphams.Where(n => n.Mahang == 6).Take(4).ToList();
             return PartialView(mi);
         }
-
+        public ActionResult HP()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 16).Take(4).ToList();
+            return PartialView(mi);
+        }
+        public ActionResult Acer()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 17).Take(4).ToList();
+            return PartialView(mi);
+        }
+        public ActionResult Lenovo()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 18).Take(4).ToList();
+            return PartialView(mi);
+        }
         //public ActionResult dttheohang()
         //{
         //    var mi = db.Sanphams.Where(n => n.Mahang == 5).Take(4).ToList();

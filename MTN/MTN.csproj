@@ -214,9 +214,13 @@
     <Content Include="HinhAnhMTN\637577199955105403_ss-tab-a7-lite-bac-dd.jpg" />
     <Content Include="HinhAnhMTN\800-200-800x200-136.png" />
     <Content Include="HinhAnhMTN\800-200-800x200-211.png" />
+    <Content Include="HinhAnhMTN\Acer1.jpg" />
+    <Content Include="HinhAnhMTN\Acer2.jpg" />
+    <Content Include="HinhAnhMTN\Acer3.jpg" />
+    <Content Include="HinhAnhMTN\Acer4.jpg" />
     <Content Include="HinhAnhMTN\admin.jpg" />
     <Content Include="HinhAnhMTN\anker1.jpg" />
-    <Content Include="HinhAnhMTN\anker2.jpg" />
+    <Content Include="HinhAnhMTN\Anker2.jpg" />
     <Content Include="HinhAnhMTN\anker3.jpg" />
     <Content Include="HinhAnhMTN\anker4.jpg" />
     <Content Include="HinhAnhMTN\Anker54-b_17.png" />
@@ -236,11 +240,19 @@
     <Content Include="HinhAnhMTN\banner5.png" />
     <Content Include="HinhAnhMTN\banner6.png" />
     <Content Include="HinhAnhMTN\banner7.png" />
+    <Content Include="HinhAnhMTN\bannerlap1.jpg" />
+    <Content Include="HinhAnhMTN\bannerlap2.jpg" />
+    <Content Include="HinhAnhMTN\bannerlap3.jpg" />
+    <Content Include="HinhAnhMTN\bannerlap4.jpg" />
     <Content Include="HinhAnhMTN\buds-800-200-800x200.png" />
     <Content Include="HinhAnhMTN\euro-m51-390-97-390x97-1.png" />
     <Content Include="HinhAnhMTN\euro-samsung-830-300-830x300-5.png" />
     <Content Include="HinhAnhMTN\Group3913-340x340.jpg" />
     <Content Include="HinhAnhMTN\hotsale-830-300-830x300-1.png" />
+    <Content Include="HinhAnhMTN\HP1.jpg" />
+    <Content Include="HinhAnhMTN\HP2.jpg" />
+    <Content Include="HinhAnhMTN\HP3.jpg" />
+    <Content Include="HinhAnhMTN\HP4.jpg" />
     <Content Include="HinhAnhMTN\ip3.jpg" />
     <Content Include="HinhAnhMTN\ip4.jpg" />
     <Content Include="HinhAnhMTN\ip5.jpg" />
@@ -258,6 +270,10 @@
     <Content Include="HinhAnhMTN\laptopdesk-170x170.png" />
     <Content Include="HinhAnhMTN\laptopdesk-340x340.jpg" />
     <Content Include="HinhAnhMTN\LG54-b_17.png" />
+    <Content Include="HinhAnhMTN\LN1.jpg" />
+    <Content Include="HinhAnhMTN\LN2.jpg" />
+    <Content Include="HinhAnhMTN\LN3.jpg" />
+    <Content Include="HinhAnhMTN\LN4.jpg" />
     <Content Include="HinhAnhMTN\logo-iphone-220x48.png" />
     <Content Include="HinhAnhMTN\logo-xiaomi-220x48-10.png" />
     <Content Include="HinhAnhMTN\logo-xiaomi-220x48-5.png" />
@@ -466,7 +482,6 @@
     <Content Include="Views\Sanpham\dtxiaomipartial.cshtml" />
     <Content Include="Views\Sanpham\xemchitiet.cshtml" />
     <Content Include="Views\DienThoai\Phone.cshtml" />
-    <Content Include="Views\TayNghe\Headphones.cshtml" />
     <Content Include="Views\Nguoidung\Dangky.cshtml" />
     <Content Include="Views\Lienhe\lienhead.cshtml" />
     <Content Include="Views\Nguoidung\DangNhap.cshtml" />
@@ -513,6 +528,10 @@
     <Content Include="Views\Admin\Edit.cshtml" />
     <Content Include="Views\Admin\Create.cshtml" />
     <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\DienThoai\Laptop.cshtml" />
+    <Content Include="Views\Sanpham\HP.cshtml" />
+    <Content Include="Views\Sanpham\Acer.cshtml" />
+    <Content Include="Views\Sanpham\Lenovo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
