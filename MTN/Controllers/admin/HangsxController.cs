@@ -38,62 +38,82 @@ namespace MTN.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection collection, Hangsanxuat hsx)
         {
-            
-            var CB_Hangsanxuat = collection["Tenhang"];
-            if(string.IsNullOrEmpty(CB_Hangsanxuat))
-            {
-                ViewData["Loi"] = "Tên hãng không có";
-            }
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
             else
             {
-                hsx.Tenhang = CB_Hangsanxuat;
-                db.Hangsanxuats.InsertOnSubmit(hsx);
-                db.SubmitChanges();
-                return RedirectToAction("Index");
+                var CB_Hangsanxuat = collection["Tenhang"];
+                if (string.IsNullOrEmpty(CB_Hangsanxuat))
+                {
+                    ViewData["Loi"] = "Tên hãng không có";
+                }
+                else
+                {
+                    hsx.Tenhang = CB_Hangsanxuat;
+                    db.Hangsanxuats.InsertOnSubmit(hsx);
+                    db.SubmitChanges();
+                    return RedirectToAction("Index");
+                }
+                return this.Create();
             }
-            return this.Create();
-            
         }
         public ActionResult Edit(int id)
         {
-            var Ed_ = db.Hangsanxuats.First(m => m.Mahang == id);
-            return View(Ed_);
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else
+            {
+                var Ed_ = db.Hangsanxuats.First(m => m.Mahang == id);
+                return View(Ed_);
+            }
         }
         [HttpPost]
         public ActionResult Edit(int id, FormCollection collection)
         {
-           
-            var edit = db.Hangsanxuats.First(m => m.Mahang == id);
-            var ED_Hangsanxuat = collection["Tenhang"];
-            edit.Mahang = id;
-            if (string.IsNullOrEmpty(ED_Hangsanxuat))
-            {
-                ViewData["Loi"] = "Tên hãng không có";
-            }
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
             else
             {
-                edit.Tenhang = ED_Hangsanxuat;
-                UpdateModel(edit);
-                db.SubmitChanges();
-                return RedirectToAction("Index");
+                var edit = db.Hangsanxuats.First(m => m.Mahang == id);
+                var ED_Hangsanxuat = collection["Tenhang"];
+                edit.Mahang = id;
+                if (string.IsNullOrEmpty(ED_Hangsanxuat))
+                {
+                    ViewData["Loi"] = "Tên hãng không có";
+                }
+                else
+                {
+                    edit.Tenhang = ED_Hangsanxuat;
+                    UpdateModel(edit);
+                    db.SubmitChanges();
+                    return RedirectToAction("Index");
+                }
+                return this.Edit(id);
             }
-            return this.Edit(id);
         }
         public ActionResult Delete(int id)
         {
-            
-            var DL = db.Hangsanxuats.First(m => m.Mahang == id);
-            return View(DL);
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else
+            {
+                var DL = db.Hangsanxuats.First(m => m.Mahang == id);
+                return View(DL);
+            }
         }
         [HttpPost]
         public ActionResult Delete(int id, FormCollection collection)
         {
-            
-            var delete = db.Hangsanxuats.Where(m => m.Mahang == id).First();
-            db.Hangsanxuats.DeleteOnSubmit(delete);
-            db.SubmitChanges();
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
+            else
+            {
+                var delete = db.Hangsanxuats.Where(m => m.Mahang == id).First();
+                db.Hangsanxuats.DeleteOnSubmit(delete);
+                db.SubmitChanges();
                 return RedirectToAction("Index");
             }
+        }
          
         }
 }
