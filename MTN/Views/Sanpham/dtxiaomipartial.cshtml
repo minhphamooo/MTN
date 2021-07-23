@@ -9,7 +9,7 @@
             </a>
             <center>
                 <h3>@item.Tensp</h3>
-                <h3 style="color:red">Giá: @item.Giatien</h3>
+                <h3 style="color:red">Giá: @String.Format("{0:0,0}", item.Giatien) VNĐ</h3>
 
                 <br />
                 @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMasp = item.Masp, @strURL = Request.Url.ToString() }))
@@ -22,15 +22,7 @@
 
         </div>
     }
-    @*<div class="col-md-3 col-sm-6">
-            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
-        </div>
-        <div class="col-md-3 col-sm-6">
-            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
-        </div>*@
+    
 </div>
 
 

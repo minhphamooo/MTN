@@ -27,6 +27,11 @@ namespace MTN.Controllers
             var mi = db.Sanphams.Where(n => n.Mahang == 3).Take(4).ToList();
             return PartialView(mi);
         }
+         public ActionResult smarphone()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 19).Take(4).ToList();
+            return PartialView(mi);
+        }
         public ActionResult Anker()
         {
             var mi = db.Sanphams.Where(n => n.Mahang == 4).Take(4).ToList();
@@ -35,6 +40,11 @@ namespace MTN.Controllers
         public ActionResult JBL()
         {
             var mi = db.Sanphams.Where(n => n.Mahang == 5).Take(4).ToList();
+            return PartialView(mi);
+        }
+        public ActionResult PIN ()
+        {
+            var mi = db.Sanphams.Where(n => n.Mahang == 20).Take(4).ToList();
             return PartialView(mi);
         }
         public ActionResult Sony()
@@ -57,6 +67,7 @@ namespace MTN.Controllers
             var mi = db.Sanphams.Where(n => n.Mahang == 18).Take(4).ToList();
             return PartialView(mi);
         }
+
         //public ActionResult dttheohang()
         //{
         //    var mi = db.Sanphams.Where(n => n.Mahang == 5).Take(4).ToList();

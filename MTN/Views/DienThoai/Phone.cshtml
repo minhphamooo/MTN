@@ -3,6 +3,7 @@
     ViewBag.Title = "Phone";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+
 <div class="row">
     <br />
     <div class="img-responsive">
@@ -41,25 +42,26 @@
             </a>
 
         </div>
-        
+
     </div>
 </div>
-    <br />
 
-    <div class="dt" style=" padding-left: 20px;">
+<h3 style="Text-align: Center; color: white; font-style: inherit; background-color: #d41d50;"> SẢN PHẨM NỔI BẬT</h3>
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtiphonePartial", "Sanpham")
-    </div>
-    <div class="dt" style=" padding-left: 20px;">
+    @Html.Action("smarphone", "Sanpham")
+</div>
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtsamsungpartial", "Sanpham")
-    </div>
+    @Html.Action("dtiphonePartial", "Sanpham")
+</div>
 
-    <div class="dt" style=" padding-left: 20px;">
+<div class="dt" style=" padding-left: 20px;">
 
-        @Html.Action("dtxiaomipartial", "Sanpham")
-    </div>
+    @Html.Action("dtsamsungpartial", "Sanpham")
+</div>
+<div class="dt" style=" padding-left: 20px;">
 
-
-
+    @Html.Action("dtxiaomipartial", "Sanpham")
+</div>
 
