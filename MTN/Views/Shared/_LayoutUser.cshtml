@@ -92,11 +92,7 @@
                     </li>
 
                     <li>
-                        <a href="~/Views/Home/About.cshtml" title="THONGTIN">
-                            <span><i class=" glyphicon glyphicon-edit "></i></span>
-                            <span>THÔNG TIN</span>
-
-                        </a>
+                        <a href="@Url.Action("Thongtinweb","Thongtin")"><i class="glyphicon glyphicon-edit"></i>THÔNG TIN</a>
                     </li>
                 </ul>
             </div>
@@ -138,7 +134,7 @@
                 <h2>Thông tin</h2>
                 <span>Về chúng tôi</span>
                 <br />
-                <span>Liên hệ</span>
+                <a href="@Url.Action("lienhead","Lienhe") ">Liên hệ</a>
                 <br />
                 <span>Góp ý</span>
                 <br />

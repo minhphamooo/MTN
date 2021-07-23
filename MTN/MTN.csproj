@@ -150,6 +150,7 @@
     <Compile Include="Controllers\PhukienController.cs" />
     <Compile Include="Controllers\SanphamController.cs" />
     <Compile Include="Controllers\TayNgheController.cs" />
+    <Compile Include="Controllers\ThongtinController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -240,6 +241,7 @@
     <Content Include="HinhAnhMTN\bannerlap3.jpg" />
     <Content Include="HinhAnhMTN\bannerlap4.jpg" />
     <Content Include="HinhAnhMTN\buds-800-200-800x200.png" />
+    <Content Include="HinhAnhMTN\hotrokhachhang.jpg" />
     <Content Include="HinhAnhMTN\HP1.jpg" />
     <Content Include="HinhAnhMTN\HP2.jpg" />
     <Content Include="HinhAnhMTN\HP3.jpg" />
@@ -523,6 +525,7 @@
     <Content Include="Views\Sanpham\smarphone.cshtml" />
     <Content Include="Views\DienThoai\Phone.cshtml" />
     <Content Include="Views\Sanpham\PIN.cshtml" />
+    <Content Include="Views\Thongtin\Thongtinweb.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
