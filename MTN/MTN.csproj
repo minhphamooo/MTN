@@ -308,6 +308,7 @@
     <Content Include="HinhAnhMTN\sony4.jpg" />
     <Content Include="HinhAnhMTN\sticky-pk-390-97-390x97-1.png" />
     <Content Include="HinhAnhMTN\sticky-pk-390-97-copy2-390x97.png" />
+    <Content Include="HinhAnhMTN\TINTUC.jpg" />
     <Content Include="HinhAnhMTN\vivo-y53s-xanh-600x600.jpg" />
     <Content Include="HinhAnhMTN\vivo.jpg" />
     <Content Include="HinhAnhMTN\vsmart.jpg" />
@@ -451,6 +452,7 @@
     <Content Include="tinymce\js\tinymce\themes\modern\theme.min.js" />
     <Content Include="tinymce\js\tinymce\tinymce.min.js" />
     <Content Include="tinymce\LICENSE.TXT" />
+    <Content Include="VideoMTN\iPHONE 12 REVIEW_ CHIẾC iPHONE ĐÁNG MUA NHẤT NĂM NAY!__.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
