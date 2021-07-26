@@ -25,29 +25,32 @@ namespace MTN.Controllers
         [HttpPost]
         public ActionResult LoginAdmin(FormCollection collection)
         {
-
-            var tendn = collection["UserAdmin"];
-            var matkhau = collection["PassAdmin"];
-            if (String.IsNullOrEmpty(tendn))
-            {
-                ViewData["Loi1"] = "Phải Đăng Nhập :";
-            }
-            else if (String.IsNullOrEmpty(matkhau))
-            {
-                ViewData["Loi2"] = "Phải Nhập Mật Khẩu";
-            }
+            if (Session["Taikhoanadmin"] == null)
+                return RedirectToAction("LoginAdmin", "Admin");
             else
             {
-                Admin ad = db.Admins.SingleOrDefault(n => n.UserName == tendn && n.PassAdmin == matkhau);
-                if (ad != null)
+                var tendn = collection["UserAdmin"];
+            var matkhau = collection["PassAdmin"];
+                if (String.IsNullOrEmpty(tendn))
                 {
-                    Session["Taikhoanadmin"] = ad;
-                    return RedirectToAction("Index", "Admin");
-
+                    ViewData["Loi1"] = "Phải Đăng Nhập :";
+                }
+                else if (String.IsNullOrEmpty(matkhau))
+                {
+                    ViewData["Loi2"] = "Phải Nhập Mật Khẩu";
                 }
                 else
-                    ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                {
+                    Admin ad = db.Admins.SingleOrDefault(n => n.UserName == tendn && n.PassAdmin == matkhau);
+                    if (ad != null)
+                    {
+                        Session["Taikhoanadmin"] = ad;
+                        return RedirectToAction("Index", "Admin");
 
+                    }
+                    else
+                        ViewBag.Thongbao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                }
             }
             return RedirectToAction("Login", "Admin");
         }
